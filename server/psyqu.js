@@ -9,6 +9,7 @@ Meteor.startup(() => {
 
 Meteor.methods({
 		'submitBig5Scale': function (big5) {
+			console.log(big5);
         Big5.simpleSchema().clean(big5, {
    		extendAutoValueContext: {
     		isInsert: true,
