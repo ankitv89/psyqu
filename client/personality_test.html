@@ -1,0 +1,111 @@
+<template name="personality">
+
+<h1 class=personalityIntro>I see myself as someone who...</h1>
+   <div class="test">
+
+    <!-- {{> quickForm collection="Big5" doc=this id="insertPersonality" type="method" meteormethod = "submitBig5"}} -->
+
+     {{> quickForm 
+      collection="Big5"
+      id="insertPersonality"
+      type="method"
+      meteormethod="submitBig5Scale"}}
+
+
+      {{> SideNav}}
+
+
+
+  </div>
+
+    <!--   {{> myScore}} -->
+
+  <!--  <div class="userRe">
+    <hr>
+      {{#each big5s}}
+         {{> showResult}}
+      {{/each}}
+        
+
+    </div>
+ -->
+</template>
+
+
+<template name="showResult">
+ <div class=testResult>
+
+<!--       <h2>Score: {{>score aa=extra1 bb=agree1_re}} </h2> -->
+ <!--      <h2>{{>uid2email uid=userId}}</h2>
+
+
+      <h2>Extraversion: {{>extraversion  kk=extra1 ll=extra2_re mm=extra3 nn=extra4 oo=extra5_re 
+      pp=extra6 qq=extra7_re rr=extra8}}</h2>
+      <h2>Agreeableness: {{>agreeable  j=agree1_re k=agree2 l=agree3_re 
+      m=agree4 n=agree5 o=agree6_re p=agree7 q=agree8_re r=agree9}}</h2>
+      <h2>Neuroticism: {{>neurotic  bb=neuro1 cc=neuro2_re ee=neuro3 ff=neuro4 gg=neuro5_re 
+      hh=neuro6 ii=neuro7_re jj=neuro8}}</h2>
+      <h2>Openness: {{>openness  a=open1 b=open2 d=open4 e=open5
+      dx=open6 ex=open7 f=open8_re g=open9 h=open10_re I=open11}}</h2>
+      <h2>Conscientiousness: {{>conscientiousness s=cons1 t=cons2_re u=cons3 v=cons4_re
+      w=cons5_re x=cons6 y=cons7 z=cons8 zx=cons9_re}}</h2>
+     -->
+
+
+
+      <hr> 
+ </div>
+<!-- 
+      <h2> {{Match}} </h2> -->
+</template>
+
+
+<!-- <template name="user">
+ {{firstName}} 
+
+
+</template>
+ -->
+<!-- <template name = "testing">
+
+  {{> neuroScore}} <br/>
+
+  {{> agreeableScore}} <br/>
+
+
+  {{> opennessScore}} <br/>
+
+
+ 
+   
+
+
+</template> -->
+
+
+
+
+<template name="uid2email">
+  {{email uid}}
+</template>
+
+
+<template name="neurotic">
+  {{add bb cc ee ff gg hh ii jj}}
+</template>
+
+<template name="agreeable">
+  {{add j k l m n o p q r}}
+</template>
+
+<template name="openness">
+  {{add a b d dx ex e f g h I}}
+</template>
+
+<template name="extraversion">
+  {{add kk ll mm nn oo pp qq rr}}
+</template>
+
+<template name="conscientiousness">
+  {{add s t u v w x y z zx}}
+</template>

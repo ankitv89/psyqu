@@ -1,29 +1,62 @@
 
+
 <head>
-   
+<!-- add google icon -->
+
+<script src="https://use.fontawesome.com/80b1c74092.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </head>
-<body>
 
+<template name="login-page">
+  <div class="loginPage">
+    <h1>Findum</h1>   
+      <i class="material-icons md-24px md-light md-inactive">face</i> <br/>
 
-</body>
+    <div class="login-button">
+    {{> loginButtons}}
+    </div>
+    <h5>Copyright &copy; Found You, 2016-2017.</h5>
+ </div>     
+
+</template> 
 
 <template name="main">
-  <h1>Found You</h1> 
-    <p>Choose who you need to find</p>
-     {{> navigation}}
-     {{> loginButtons}}
+  <div class="main-page">
+    <h1>Find</h1> <br/>
+     {{> circle}}
+       
+  </div>
+</template>
 
-    <p>Copyright &copy; Found You, 2016-2017.</p>
-</template>    
+
+<template name="circle">
+
+   <div class="circle-slider half-bottom">
+     <div class = "owl-wrapper" style="width:3600px; left:0px; display:block;">
+       <div class="owl-item" style="width: 600px;">   
+         <table class ="navi" style="width:1500px;">
+         <tr>    
+          <th> <a href="{{pathFor route='friend'}}"><img src="/friends_1.jpg" alt="img"></a> </th>
+      <!--     <h2>A friend</h2> -->
+          <th> <a href="{{pathFor route='flatmate'}}"><img src="/flatmate.jpg" alt="img"></a></th>
+<!--           <h2>A flatmate</h2> -->
+          </tr>
+          <tr>
+            <td colspan="2" class = "special"><a href="{{pathFor route='partner'}}"><img src="/love.jpg" alt="img"></a></td>          
+          </tr>
+        </table>
+       </div> 
+     </div> 
+   </div>   
+
+</template>
+
+
+
  
 
-<template name="navigation"> 
-    <ul>
-        <li><a href="{{pathFor route='friend'}}">A friend</a></li>
-        <li><a href="{{pathFor route='flatmate'}}">A flatmate</a></li>
-        <li><a href="{{pathFor route='partner'}}">A partner</a></li>
-    </ul>
-</template>
+
 
 <template name="flatmate">
     <p>Find a flatmate!</p>
@@ -32,86 +65,6 @@
 <template name="partner">
     <p>Find a partner!</p>
 </template>
-
-<!--the friend page -->
-<template name="friend">
-    <h1>Find a friend!</h1>
-      <p> You need to fill in the scales below. You may play with any 
-      scale. <br/> The more scales you finish, the more accurate the result will be.
-      </p>
-
-      {{> friendNavi}}
-
-</template> 
-     
-<template name="friendNavi">
-        <ul>
-          <li><a href="{{pathFor route='personality'}}"> What's your personality? </a></li>
-          <li><a href="{{pathFor route='disclosure'}}"> Do you like to open up yourself? </a></li>
-          <li><a href="{{pathFor route='interests'}}">What are your interests? </a></li>
-        </ul>
-</template>
-
-<!-- personality survey -->
-<template name="personality">
-<h1>I see myself as someone who...</h1>
-
-    <!-- {{> quickForm collection="Big5" doc=this id="insertPersonality" type="method" meteormethod = "submitBig5"}} -->
-
-     {{> quickForm 
-      collection="Big5"
-      id="insertPersonality"
-      type="method"
-      meteormethod="submitBig5Scale"}}
-
-    <!--   {{> myScore}} -->
-   
-</template>
-
-
-<!-- <template name="Rsvp">
-  
-  {{#if isSuccessfulRsvp }}
-    
-    
-    {{else}}
-
-       
-
-      {{> quickForm 
-      collection="Big5"
-      id="insertPersonality"
-      type="method"
-      meteormethod="submitBig5Scale"
-      
-      }}
-      
-  {{/if}}
-</template>
- -->
-<template name = "myScore">
-  <input type = "button" value = "SeeMyProfile"/>   
-
-
-</template>
-
-
-<!-- self-disclosure -->
-<template name="disclosure">
-  <h1>Do you like to open up yourself?</h1>
-</template>
-
-<template name="interests">
-  <h1>What are your interests?</h1>
-</template>
-
-
-
-
-
-
-
-
 
 
 

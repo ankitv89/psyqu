@@ -1,0 +1,60 @@
+
+
+<template name="friend">
+  <div class=findFriends>
+    <h1>Find a friend!</h1>
+      <p> You need to fill in any of the scales below. The more scales you finish, the more accurate the result will be.</p>
+
+      {{> friendNavi}}
+  </div>
+
+</template> 
+     
+<!-- <template name="friendNavi">
+        <ul>
+          <li><a href="{{pathFor route='personality'}}"> What's your personality? </a></li>
+          <li><a href="{{pathFor route='disclosure'}}"> Do you like to open up yourself? </a></li>
+          <li><a href="{{pathFor route='interests'}}">What are your interests? </a></li>
+        </ul>
+
+</template> -->
+
+<template name="friendNavi">
+<div class ="friendsnavi">
+ <ul class="friendmenu">
+   <li class= "red">
+    <a href="{{pathFor route='personality'}}"> What's your personality? </a>
+   </li>
+   <li class="pink">
+   <a href="{{pathFor route='disclosure'}}"> Do you like to open up yourself? </a>
+   </li>
+   <li class="lightred">
+   <a href="{{pathFor route='interests'}}">What are your interests? </a>
+   </li>
+   <li class="lightred2">
+   </li>
+   <li class="lightred3">
+   </li>
+   <li class="lightred4">
+   </li>
+   <li class="lightred5">
+   </li>
+   <li class="lightred6">
+   </li>
+
+
+
+
+
+ </ul>
+</div>
+
+</template>
+
+
+
+
+
+
+
+
