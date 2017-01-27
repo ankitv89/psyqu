@@ -6,7 +6,16 @@
 
 Template.personality.helpers({
   big5s: Big5.find()
-})
+});
+
+Template.yourScore.helpers({
+  myScore : function(){
+    var data = Big5.findOne({author: Meteor.userId()});
+    var score = data.total;
+    return score;
+  }
+});
+
 
 
 // Template.personality.helpers({

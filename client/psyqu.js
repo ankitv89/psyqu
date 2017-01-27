@@ -2,7 +2,7 @@
 //PurposeList.insert({purpose2: "Find a soulmate"})
 //PurposeList.insert({purpose2: "Find flatmate"})
 //PurposeList.insert({purpose2: "Find a friend"})
-UserResult = new Mongo.Collection('user_result');
+//UserResult = new Mongo.Collection('user_result');
 
 
 
@@ -13,16 +13,16 @@ UserResult = new Mongo.Collection('user_result');
 
 // });
 
-//user go to the main page after login 
-Router.route('/', 
-  name: 'login-page', 
+//user go to the main page after login
+Router.route('/',
+  name: 'login-page',
   function () {
    if (Meteor.userId()) {
         this.render('main');
     } else {
         this.next();
     }
-  
+
 });
 
 //users go back to login page if they haven't login 
@@ -56,6 +56,14 @@ Router.route('/friend');
 Router.route('/personality');
 Router.route('/disclosure');
 Router.route('/interests');
+Router.route('/matchUser', {
+    name : 'matchUser', 
+    template: 'matchUser',
+    waitOn: function () {
+            return Meteor.subscribe('matchedUsers');
+    }
+});
+
 
 
 
