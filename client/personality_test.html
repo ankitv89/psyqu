@@ -4,7 +4,7 @@
    <div class="test">
 
     <!-- {{> quickForm collection="Big5" doc=this id="insertPersonality" type="method" meteormethod = "submitBig5"}} -->
-
+{{> yourScore}}
      {{> quickForm 
       collection="Big5"
       id="insertPersonality"
@@ -29,6 +29,10 @@
 
     </div>
  -->
+</template>
+
+<template name="yourScore">
+    My Score is {{myScore}}
 </template>
 
 
