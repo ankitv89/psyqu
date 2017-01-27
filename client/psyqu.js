@@ -65,6 +65,14 @@ Router.route('/matchUser', {
 });
 
 
+Router.route('/sign-out', {
+    name: 'signOut',
+    onBeforeAction: function () {
+        Meteor.logout(); 
+        this.next();
+    }
+});
+
 
 
 Template.uid2email.helpers({
@@ -82,6 +90,12 @@ Template.friendNavi.events({
   }
 });
 
+
+Template.SideNav.events({
+   "click #logout" : function(){
+       Meteor.logout();
+   }
+});
 
 
 
