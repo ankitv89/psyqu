@@ -21,7 +21,21 @@ Meteor.methods({
 		console.log('new BIG5:', big5);
 		Big5.insert(big5);
 
-		}
+		},
+
+    'submitProfile': function (profile) {
+      console.log(profile);
+        Profile.simpleSchema().clean(profile, {
+      extendAutoValueContext: {
+        isInsert: true,
+        isUpdate: false,
+        isUpsert: false,
+        isFromTrustedCode: false
+      }
+    });
+    console.log('new PROFILE:', profile);
+    Profile.insert(profile);
+  },
 });
 
 

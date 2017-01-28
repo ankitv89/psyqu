@@ -43,7 +43,14 @@ Router.onBeforeAction(function() {
 //   }
 // }
 
-Router.route('/main');
+Router.route('/main',{
+  name:'main',
+  template:'main',
+  trackPageView: true,
+  function () {
+  this.layout('HomeLayout')
+}
+});
 
 
 Router.route('/partner');
@@ -96,6 +103,8 @@ Template.SideNav.events({
        Meteor.logout();
    }
 });
+
+
 
 
 

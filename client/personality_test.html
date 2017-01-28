@@ -1,10 +1,10 @@
 <template name="personality">
 
-<h1 class=personalityIntro>I see myself as someone who...</h1>
-   <div class="test">
+<h1 class="text-center">I see myself as someone who...</h1>
+   <div class="text-center">
 
     <!-- {{> quickForm collection="Big5" doc=this id="insertPersonality" type="method" meteormethod = "submitBig5"}} -->
-{{> yourScore}}
+     {{> yourScore}}
      {{> quickForm 
       collection="Big5"
       id="insertPersonality"
@@ -12,28 +12,39 @@
       meteormethod="submitBig5Scale"}}
 
 
+    
+    <p>Your matching result will be more accurate if you fill in more scales</p>
+    </div>
+    
+    <div class="table-responsive">
+   <table class="table">
+    <tr>
+      <th class="text-right">
+      <a href="{{pathFor 'matchUser'}}"><button type="button" class="btn btn-danger">Match</button></a>
+      </th>
+
+
+       <th class="text-left">
+    <a href="{{pathFor 'friend'}}"><button type="button" class="btn btn-success">Next Scale</button></a>
+       </th>
+    </tr>
+
+    </table>
+    
+
       {{> SideNav}}
 
 
-
   </div>
-
-    <!--   {{> myScore}} -->
-
-  <!--  <div class="userRe">
-    <hr>
-      {{#each big5s}}
-         {{> showResult}}
-      {{/each}}
-        
-
-    </div>
- -->
 </template>
+
+
 
 <template name="yourScore">
     My Score is {{myScore}}
 </template>
+
+
 
 
 <template name="showResult">
@@ -89,7 +100,7 @@
 
 
 
-<template name="uid2email">
+<!-- <template name="uid2email">
   {{email uid}}
 </template>
 
@@ -113,3 +124,4 @@
 <template name="conscientiousness">
   {{add s t u v w x y z zx}}
 </template>
+ -->

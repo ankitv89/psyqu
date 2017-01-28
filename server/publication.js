@@ -1,5 +1,11 @@
 Meteor.publish('myBig5',function(){
      return Big5.find({author:this.userId});
+
+ });
+
+Meteor.publish('myProfile',function(){
+     return Profile.find({author:this.userId});
+     
  });
 
 Meteor.publish('matchedUsers',function(){
