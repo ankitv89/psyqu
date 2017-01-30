@@ -44,6 +44,8 @@ Router.route('/main',{
 }
 });
 
+//want to direct user to main page once profile is submitted
+
 Router.route('/user_profile',
   name: 'user_profile',
   function () {
@@ -55,9 +57,11 @@ Router.route('/user_profile',
 });
 
 
+
 Router.route('/partner');
 Router.route('/flatmate');
 Router.route('/friend');
+Router.route('/chat');
 //Router.route('/user_profile');
 
 

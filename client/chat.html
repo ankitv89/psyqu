@@ -1,0 +1,22 @@
+<template name= "chat">
+
+	  <div class="page-header text-center">
+                <h1>You may chat with a friend you found with Findum or our AI Panda</h1>
+      </div>
+		 <div class="table-responsive">
+		   	<table class="chat_table">
+		      <tr>
+		       <th><a href="{{pathFor route='matchUser'}}"><button type="button" class="btn btn-primary btn-lg btn-block">Chat with my match</button></a></th>
+		      </tr>
+		       <tr>
+		       <th><a href="{{pathFor route='main'}}"><button type="button" class="btn btn-success btn-lg btn-block">Chat with Panda</button></a></th>
+		      </tr>
+		   </table>
+		</div>
+
+     
+      {{> SideNav}}
+	
+
+
+</template>
