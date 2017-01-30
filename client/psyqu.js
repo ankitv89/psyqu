@@ -18,7 +18,7 @@ Router.route('/',
   name: 'login-page',
   function () {
    if (Meteor.userId()) {
-        this.render('main');
+        this.render('user_profile');
     } else {
         this.next();
     }
@@ -34,14 +34,6 @@ Router.onBeforeAction(function() {
   }
 });
 
-// this.route('myAccount', {
-//   path: '/',
-//   onBeforeAction: function () {
-//     if (! Meteor.user()) {
-//       if (!Meteor.loggingIn()) Router.go('main');
-//     }
-//   }
-// }
 
 Router.route('/main',{
   name:'main',
@@ -52,10 +44,21 @@ Router.route('/main',{
 }
 });
 
+Router.route('/user_profile',
+  name: 'user_profile',
+  function () {
+   if (Profile.Gender()) {
+        this.render('main');
+    } else {
+        this.next();
+    }
+});
+
 
 Router.route('/partner');
 Router.route('/flatmate');
 Router.route('/friend');
+//Router.route('/user_profile');
 
 
 

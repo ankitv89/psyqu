@@ -11,10 +11,13 @@ Meteor.publish('myProfile',function(){
 Meteor.publish('matchedUsers',function(){
     var data = Big5.findOne({author: this.userId});
     var myscore = data.total;
-
     var match = Big5.find({$and : [{total: {$gt : myscore-2}},{total: {$lt : myscore+2}},{author :{$ne: this.user}}]});
-    // var prof_id = Profile.find({author :{$eq: this.user}});
-
+  
+//return user profile
+    // var P = Profile.find({author:{$eq: match}});
+    // return P;
     return match;
+
+
 });
 

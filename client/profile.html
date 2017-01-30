@@ -1,0 +1,9 @@
+<template name = "user_profile"> 
+    <div class = "profile1">
+
+      {{> quickForm collection="Profile" id="insertProfile" schema=schemaFromJSON type="method" meteormethod="submitProfile" template="bootstrap3-inline" }}
+
+        {{> SideNav}}
+  </div>
+
+</template>
