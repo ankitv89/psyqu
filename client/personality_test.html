@@ -5,6 +5,7 @@
 
     <!-- {{> quickForm collection="Big5" doc=this id="insertPersonality" type="method" meteormethod = "submitBig5"}} -->
      {{> yourScore}}
+
      {{> quickForm 
       collection="Big5"
       id="insertPersonality"
@@ -17,14 +18,17 @@
     </div>
     
     <div class="table-responsive">
-   <table class="table">
+   <table class="table borderless">
     <tr>
-      <th class="text-right">
+      <th>
       <a href="{{pathFor 'matchUser'}}"><button type="button" class="btn btn-danger">Match</button></a>
+      </th>
+        <th class="col-sm-12">
+    
       </th>
 
 
-       <th class="text-left">
+       <th class="text-right">
     <a href="{{pathFor 'friend'}}"><button type="button" class="btn btn-success">Next Scale</button></a>
        </th>
     </tr>

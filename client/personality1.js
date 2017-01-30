@@ -25,13 +25,7 @@ Template.yourScore.helpers({
 //   }
 // })
 
-// Template.personality.helpers({
-//   myScore: function(){
-//     score=(Scores.findOne({gameId: this._id, userId: Meteor.userId()}));
-//     console.log("SCR:" ,score);
-//     return Big5[cons8];
-//   },
-// });
+
 
 // Template.score.helpers({
 //   add: function(aa,bb){
@@ -41,13 +35,13 @@ Template.yourScore.helpers({
 
 // Template.neurotic.helpers({
 //   add: function(bb,cc,ee,ff,gg,hh,ii,jj){
-//     return Meteor.user().bb-cc+ee+ff-gg+hh-ii+jj
+//     return bb-cc+ee+ff-gg+hh-ii+jj
 //   }
 // })
 
 // Template.agreeable.helpers({
 //   add: function(j,k,l,m,n,o,p,q,r){
-//     return Meteor.user().j+k-l+m+n-o+p-q+r
+//     return j+k-l+m+n-o+p-q+r
 //   }
 // })
 

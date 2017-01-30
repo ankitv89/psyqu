@@ -13,6 +13,8 @@ Meteor.publish('matchedUsers',function(){
     var myscore = data.total;
 
     var match = Big5.find({$and : [{total: {$gt : myscore-2}},{total: {$lt : myscore+2}},{author :{$ne: this.user}}]});
+    // var prof_id = Profile.find({author :{$eq: this.user}});
+
     return match;
 });
 
