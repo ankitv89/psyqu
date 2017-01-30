@@ -3,14 +3,27 @@
 <h1 class="text-center">I see myself as someone who...</h1>
    <div class="text-center">
 
-    <!-- {{> quickForm collection="Big5" doc=this id="insertPersonality" type="method" meteormethod = "submitBig5"}} -->
+    {{#if formFilled}}
      {{> yourScore}}
+        {{#if allowedToUpdate}}
+            <p>Update</p>
+            {{> quickForm
+            collection="Big5"
+            id="updatePersonality"
+            type="method-update"
+            meteormethod="updateBig5Scale"}}
 
-     {{> quickForm 
-      collection="Big5"
-      id="insertPersonality"
-      type="method"
-      meteormethod="submitBig5Scale"}}
+{{else}}
+       <p>You can update your score after {{daysLeft}} days</p>
+        {{/if}}
+
+     {{else}}
+        {{> quickForm
+        collection="Big5"
+        id="insertPersonality"
+        type="method"
+        meteormethod="submitBig5Scale"}}
+        {{/if}}
 
 
     
@@ -45,7 +58,7 @@
 
 
 <template name="yourScore">
-    My Score is {{myScore}}
+    Your Score is {{myScore}}
 </template>
 
 

@@ -14,14 +14,20 @@
 // });
 
 //user go to the main page after login
-Router.route('/',
+Router.route('/',{
   name: 'login-page',
-  function () {
-   if (Meteor.userId()) {
-        this.render('user_profile');
-    } else {
-        this.next();
+    template : "login-page",
+  onBeforeAction: function () {
+      if (Meteor.userId()) {
+          this.render('user_profile');
+      } else {
+          this.next();
+      }
+  },
+    waitOn : function () {
+        return Meteor.subscribe('myProfile');
     }
+
 
 });
 
@@ -39,24 +45,27 @@ Router.route('/main',{
   name:'main',
   template:'main',
   trackPageView: true,
-  function () {
-  this.layout('HomeLayout')
+    function () {
+      this.layout('HomeLayout')
 }
 });
 
 //want to direct user to main page once profile is submitted
 
-Router.route('/user_profile',
-  name: 'user_profile',
-  function () {
-   if (Profile.Gender()) {
-        this.render('main');
-    } else {
-        this.next();
+Router.route('/user_profile',{
+    name: 'user_profile',
+    template : 'user_profile',
+    waitOn : function(){
+        return Meteor.subscribe('myProfile');
     }
+    // onBeforeAction : function () {
+    //     if (Profile.Gender()) {
+    //         this.render('main');
+    //     } else {
+    //         this.next();
+    //     }
+    // }
 });
-
-
 
 Router.route('/partner');
 Router.route('/flatmate');
@@ -67,7 +76,11 @@ Router.route('/chat');
 
 
   
-Router.route('/personality');
+Router.route('/personality',{
+    waitOn: function(){
+        return Meteor.subscribe('myBig5');
+    }
+});
 Router.route('/disclosure');
 Router.route('/interests');
 Router.route('/matchUser', {
@@ -89,11 +102,11 @@ Router.route('/sign-out', {
 
 
 
-Template.uid2email.helpers({
-  email: function(uid){
-    return Meteor.users.findOne({_id:uid}).emails[0].address
-  }
-})
+// Template.uid2email.helpers({
+//   email: function(uid){
+//     return Meteor.users.findOne({_id:uid}).emails[0].address
+//   }
+// });
 
 
 Template.friendNavi.events({

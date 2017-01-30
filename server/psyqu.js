@@ -25,7 +25,7 @@ Meteor.methods({
 
     'submitProfile': function (profile) {
       console.log(profile);
-        Profile.simpleSchema().clean(profile, {
+        Profiles.simpleSchema().clean(profile, {
       extendAutoValueContext: {
         isInsert: true,
         isUpdate: false,
@@ -34,8 +34,15 @@ Meteor.methods({
       }
     });
     console.log('new PROFILE:', profile);
-    Profile.insert(profile);
+    Profiles.insert(profile);
   },
+
+    updateProfile : function(modifier,documentId){
+            Profiles.update({_id:documentId},modifier);
+    },
+    updateBig5Scale : function (modifier,documentId) {
+                Big5.update({_id:documentId},modifier);
+    }
 });
 
 
