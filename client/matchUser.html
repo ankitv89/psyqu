@@ -1,14 +1,19 @@
 <template name="matchUser">
-    <div class="container">
-        <div class="page-header">
-                <h1>Matched User</h1>
-        </div>
-        <hr>
-        {{#each user}}
-                {{author}}
-            {{/each}}
 
-    </div>
+                <h1>Matched User</h1>
+
+        <hr>
+    <ul class="list-unstyled">
+       <li class="list-group-item">
+           {{#each user}}
+               <p>Age : {{Age}}</p>
+               <p>Gender : {{genderName Gender}} </p>
+           {{/each}}
+       </li>
+    </ul>
+
+
+
      
       {{> SideNav}}
 

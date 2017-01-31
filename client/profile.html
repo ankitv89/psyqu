@@ -1,8 +1,36 @@
 <template name = "user_profile"> 
     <div class = "profile1">
+        {{#if profileExists}}
+      {{#autoForm collection="Profiles" id="insertProfile" autosave=true schema=schemaFromJSON type="method" meteormethod="submitProfile" template="bootstrap3-inline" }}
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-md-4">
+                        {{> afQuickField name="Age" template="bootstrap3-inline"}}
+                    </div>
+                    <div  class="col-md-8">
+                        {{> afQuickField name="Gender" template="bootstrap3-inline"}}
+                    </div>
+                </div>
+            </div>
+          {{/autoForm}}
+{{else}}
 
-      {{> quickForm collection="Profile" id="insertProfile" schema=schemaFromJSON type="method" meteormethod="submitProfile" template="bootstrap3-inline" }}
+            {{# autoForm  collection="Profiles" autosave=true doc=currentDoc id="updateProfiles" type="method-update" meteormethod="updateProfile" }}
+<div class="row">
+    <div class="col-md-4">
+        <div class="col-md-4">
+            {{> afQuickField name="Age" template="bootstrap3-inline"}}
+        </div>
+        <div  class="col-md-8">
+            {{> afQuickField name="Gender" template="bootstrap3-inline"}}
+        </div>
+    </div>
+</div>
 
+
+            {{/autoForm}}
+            <!--{{> quickForm collection="Profiles" autosave=true doc=currentDoc id="updateProfiles" type="method-update" meteormethod="updateProfile" template="bootstrap3-inline" }}-->
+            {{/if}}
         {{> SideNav}}
   </div>
 
