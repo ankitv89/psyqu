@@ -13,6 +13,16 @@
                     <div  class="col-md-8">
                         {{> afQuickField name="Gender" template="bootstrap3-inline"}}
                     </div>
+                     <div class="col-md-4">
+                        {{> afQuickField name="Hobbies" template="bootstrap3-inline"}}
+                    </div>
+                    <div>
+                  
+                    {{> afQuickField name='country' type='countryFlags' firstOption='Select a country'}}
+             
+                    </div>
+
+
                 </div>
             </div>
           {{/autoForm}}
@@ -27,8 +37,15 @@
         <div class="col-md-4">
             {{> afQuickField name="Age" template="bootstrap3-inline"}}
         </div>
+
         <div  class="col-md-8">
             {{> afQuickField name="Gender" template="bootstrap3-inline"}}
+        </div>
+         <div class="col-md-4">
+            {{> afQuickField name="Hobbies" template="bootstrap3-inline"}}
+        </div>
+          <div class="col-md-4">
+            {{> afQuickField name='country' type='countryFlags' firstOption='Select a country'}}
         </div>
     </div>
 </div>

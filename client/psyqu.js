@@ -1,18 +1,3 @@
-
-//PurposeList.insert({purpose2: "Find a soulmate"})
-//PurposeList.insert({purpose2: "Find flatmate"})
-//PurposeList.insert({purpose2: "Find a friend"})
-//UserResult = new Mongo.Collection('user_result');
-
-
-
-
-// Router.route('/', {
-//     name: 'login-page',
-//     template:'login-page',
-
-// });
-
 //user go to the main page after login
 Router.route('/',{
   name: 'login-page',
