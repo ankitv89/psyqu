@@ -79,6 +79,22 @@ Meteor.methods({
     console.log('new FRIENDDEMO:', friendDemo);
     FriendDemo.insert(friendDemo);
   },
+      'submitPhq9Scale': function (phq9) {
+      console.log(phq9);
+        Phq9.simpleSchema().clean(phq9, {
+      extendAutoValueContext: {
+        isInsert: true,
+        isUpdate: false,
+        isUpsert: false,
+        isFromTrustedCode: false
+      }
+    });
+    console.log('new PHQ9:', phq9);
+    Phq9.insert(phq9);
+  },
+
+
+
 
     updateProfile : function(modifier,documentId){
             Profiles.update({_id:documentId},modifier);
@@ -94,6 +110,9 @@ Meteor.methods({
     },
     updateFriendDemo : function (modifier,documentId) {
                 FriendDemo.update({_id:documentId},modifier);
+    },
+        updatePhq9Scale : function (modifier,documentId) {
+                Phq9.update({_id:documentId},modifier);
     }
 });
 

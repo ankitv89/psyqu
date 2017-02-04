@@ -1,0 +1,26 @@
+<template name="friendNavi"> 
+
+  <div class="text-center">
+    <h1>Find a friend!</h1>
+      <h4> You need to fill in the scales below in sequence. You can narrow your matching results by filling in more scales.</h4>                
+  </div>
+<div class="table-responsive">
+   <table class="table">
+   <tr>
+    <th><a href="{{pathFor route='Phq9'}}"><h3 class="text-center">Happiness </h3></a></th>
+   </tr>
+   <tr>
+    <th><a href="{{pathFor route='Value'}}"><h3 class="text-center">Schwartz’s Value Survey </h3></a></th>
+   </tr>
+   <tr>
+   <th><a href="{{pathFor route='selfDisclosure'}}"><h3 class="text-center">Self-disclosure</h3></a></th>
+   </tr>
+   <tr>
+   <th><a href="{{pathFor route='personality'}}"><h3 class="text-center">What's your personality?</h3></a></th>   
+    </tr>
+   </table>
+</div>
+
+ {{> SideNav}}
+
+</template>

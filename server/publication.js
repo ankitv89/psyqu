@@ -18,6 +18,17 @@ Meteor.publish('myFriendDemo',function(){
 
  });
 
+Meteor.publish('myValue',function(){
+     return Value.find({author:this.userId});
+
+ });
+
+Meteor.publish('myPhq9',function(){
+     return Phq9.find({author:this.userId});
+
+ });
+
+
 
 
 Meteor.publish('matchedUsers',function(){

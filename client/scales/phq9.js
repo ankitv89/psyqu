@@ -1,12 +1,12 @@
 //this comes up true if userid exist
 
-Template.Value.helpers({
-  values: function(){
-    return Value.find()
+Template.Phq9.helpers({
+  Phq9s: function(){
+    return Phq9.find()
   },
 
   formFilled : function(){
-    var count = Value.find().count();
+    var count = Phq9.find().count();
     if(count<1){
       return false
     }
@@ -14,7 +14,7 @@ Template.Value.helpers({
         return true;
   },
   allowedToUpdate : function(){
-    var date = moment (Value.findOne().createdAt);
+    var date = moment (Phq9.findOne().createdAt);
     var today = moment(new Date());
     var diff = date.diff(today, 'days');
     if(diff>90){
@@ -25,7 +25,7 @@ Template.Value.helpers({
     
   },
   daysLeft : function(){
-    var date = moment (Value.findOne().createdAt);
+    var date = moment (Phq9.findOne().createdAt);
     var today = moment(new Date());
     var diff = date.diff(today, 'days');
     return 90-diff;
@@ -33,23 +33,11 @@ Template.Value.helpers({
   }
 });
 
-Template.yourScore_Value.helpers({
-  Value_total : function(){
-    var data = Value.findOne({author: Meteor.userId()});
-    var Value_total = data.Value_total;
-    return Value_total;
+Template.yourScore_Phq9.helpers({
+  Phq9_total : function(){
+    var data = Phq9.findOne({author: Meteor.userId()});
+    var Phq9_total = data.Phq9_total;
+    return Phq9_total;
   },
 
 });
-
-
-
-
-
-
-
-
-
-
-
-

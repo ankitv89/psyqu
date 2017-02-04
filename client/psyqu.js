@@ -48,9 +48,9 @@ Router.route('/user_profile',{
 
 Router.route('/partner');
 Router.route('/flatmate');
-Router.route('/friend');
+Router.route('/friendNavi');
 Router.route('/chat');
-//Router.route('/user_profile');
+//Router.route('/Value');
 
 
 
@@ -73,6 +73,17 @@ Router.route('/Value',{
     }
 });
 
+Router.route('/friend',{
+    waitOn: function(){
+        return Meteor.subscribe('myFriendDemo');
+    }
+});
+
+Router.route('/Phq9',{
+    waitOn: function(){
+        return Meteor.subscribe('myPhq9');
+    }
+});
 
 Router.route('/interests');
 Router.route('/matchUser', {
