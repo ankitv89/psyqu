@@ -58,13 +58,7 @@ Router.route('/user_profile',{
     waitOn : function(){
         return Meteor.subscribe('myProfile');
     }
-    // onBeforeAction : function () {
-    //     if (Profile.Gender()) {
-    //         this.render('main');
-    //     } else {
-    //         this.next();
-    //     }
-    // }
+
 });
 
 Router.route('/partner');
@@ -88,6 +82,11 @@ Router.route('/selfDisclosure',{
     }
 });
 
+Router.route('/Value',{
+    waitOn: function(){
+        return Meteor.subscribe('myValue');
+    }
+});
 
 
 Router.route('/interests');

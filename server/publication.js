@@ -13,6 +13,11 @@ Meteor.publish('myDisclose',function(){
 
  });
 
+Meteor.publish('myValue',function(){
+     return Value.find({author:this.userId});
+
+ });
+
 Meteor.publish('matchedUsers',function(){
     var data = Big5.findOne({author: this.userId});
     var myscore = data.extraversion;

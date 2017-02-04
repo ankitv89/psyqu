@@ -1,0 +1,74 @@
+<template name="Value">
+
+<h2 class="text-center">rate the importance of the following values as a life-guiding principle for you. </h2> <br/> 
+<p> Use the 8-point scale in which 0 indicates that the value is opposed to your principles,  1 indicates that the values is  not important for you, 4 indicates that the values is important, and 8 indicates that the value is of supreme importance for you. </p>
+   <div class="text-center">
+
+  
+
+    {{#if formFilled}}
+     {{> yourScore_Value}}
+        {{#if allowedToUpdate}}
+            <p>Update</p>
+            {{> quickForm
+            collection="Value"
+            id="updateValue"
+            type="method-update"
+            meteormethod="updateValueScale"}}
+
+{{else}}
+       
+        {{/if}}
+
+     {{else}}
+        {{> quickForm
+        collection="Value"
+        id="insertValue"
+        type="method"
+        meteormethod="submitValueScale"}}
+        {{/if}}
+   
+   <h3>You can update your score after {{daysLeft}} days, here's your score:</h3>
+
+    
+    <p>Your matching result will be more accurate if you fill in more scales</p>
+    </div>
+    
+    <div class="table-responsive">
+   <table class="table borderless">
+    <tr>
+      <th>
+      <a href="{{pathFor 'matchUser'}}"><button type="button" class="btn btn-danger">Match</button></a>
+      </th>
+        <th class="col-sm-12">
+    
+      </th>
+
+
+       <th class="text-right">
+    <a href="{{pathFor 'friend'}}"><button type="button" class="btn btn-success">Next Scale</button></a>
+       </th>
+    </tr>
+
+    </table>
+    
+
+      {{> SideNav}}
+
+
+  </div>
+</template>
+
+
+
+<template name="yourScore_Value">
+<h1 class="text-center">
+    Total score {{Value_total}} 
+  
+</h1>
+
+</template>
+
+
+
+

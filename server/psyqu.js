@@ -37,6 +37,20 @@ Meteor.methods({
     Disclose.insert(disclose);
 
     },
+    'submitValueScale': function (value) {
+      console.log(value);
+        Value.simpleSchema().clean(value, {
+      extendAutoValueContext: {
+        isInsert: true,
+        isUpdate: false,
+        isUpsert: false,
+        isFromTrustedCode: false
+      }
+    });
+    console.log('new VALUE:', value);
+    Value.insert(value);
+
+    },
 
     'submitProfile': function (profile) {
       console.log(profile);
@@ -57,24 +71,14 @@ Meteor.methods({
     },
     updateBig5Scale : function (modifier,documentId) {
                 Big5.update({_id:documentId},modifier);
+    },
+    updateDiscloseScale : function (modifier,documentId) {
+                Disclose.update({_id:documentId},modifier);
+    },
+    updateValueScale : function (modifier,documentId) {
+                Value.update({_id:documentId},modifier);
     }
 });
 
 
-// clean autoForm schema while autoValue is in use
-// Meteor.methods({
-//     'submitBig5Scale': function(big5) {
-//       Big5Schema.simpleSchema().clean(big5);
-//       check(big5, Big5Schema.simpleSchema());
-//       Big5Schema.insert(big5);
-//     }
-//  });
-
- 
-// Meteor.subscribe("Big5");
-
-// Meteor.publish ("Big5,function() {                               
-
-//   return Big5.find({user:this.userId}); 
-// });
 
