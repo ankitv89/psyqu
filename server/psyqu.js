@@ -23,6 +23,21 @@ Meteor.methods({
 
 		},
 
+    'submitDiscloseScale': function (disclose) {
+      console.log(disclose);
+        Disclose.simpleSchema().clean(disclose, {
+      extendAutoValueContext: {
+        isInsert: true,
+        isUpdate: false,
+        isUpsert: false,
+        isFromTrustedCode: false
+      }
+    });
+    console.log('new DISCLOSE:', disclose);
+    Disclose.insert(disclose);
+
+    },
+
     'submitProfile': function (profile) {
       console.log(profile);
         Profiles.simpleSchema().clean(profile, {

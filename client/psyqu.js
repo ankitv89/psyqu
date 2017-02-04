@@ -81,7 +81,15 @@ Router.route('/personality',{
         return Meteor.subscribe('myBig5');
     }
 });
-Router.route('/disclosure');
+
+Router.route('/selfDisclosure',{
+    waitOn: function(){
+        return Meteor.subscribe('myDisclose');
+    }
+});
+
+
+
 Router.route('/interests');
 Router.route('/matchUser', {
     name : 'matchUser', 

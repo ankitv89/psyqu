@@ -1,19 +1,19 @@
-<template name="personality">
+<template name="selfDisclosure">
 
-<h1 class="text-center">I see myself as ...</h1>
+<h1 class="text-center">How much you would disclose to your friend?</h1>
    <div class="text-center">
 
-   <h3>You can update your score after {{daysLeft}} days, here's your score:</h3>
+  
 
     {{#if formFilled}}
-     {{> yourScore}}
+     {{> yourScore_disclose}}
         {{#if allowedToUpdate}}
             <p>Update</p>
             {{> quickForm
-            collection="Big5"
-            id="updatePersonality"
+            collection="Disclose"
+            id="updateDisclose"
             type="method-update"
-            meteormethod="updateBig5Scale"}}
+            meteormethod="updateDiscloseScale"}}
 
 {{else}}
        
@@ -21,12 +21,13 @@
 
      {{else}}
         {{> quickForm
-        collection="Big5"
-        id="insertPersonality"
+        collection="Disclose"
+        id="insertDisclose"
         type="method"
-        meteormethod="submitBig5Scale"}}
+        meteormethod="submitDiscloseScale"}}
         {{/if}}
-
+   
+   <h3>You can update your score after {{daysLeft}} days, here's your score:</h3>
 
     
     <p>Your matching result will be more accurate if you fill in more scales</p>
@@ -59,13 +60,10 @@
 
 
 
-<template name="yourScore">
+<template name="yourScore_disclose">
 <h1 class="text-center">
-    agreeableness {{agreeableness}} <br/>
-    conscientious {{conscientious}} <br/>
-    openess {{openess}}  <br/>
-    neuroticism {{neuroticism}} <br/>
-    extraversion {{extraversion}} <br/>
+    Total score {{disclose_total}} 
+  
 </h1>
 
 </template>

@@ -8,10 +8,15 @@ Meteor.publish('myProfile',function(){
      
  });
 
+Meteor.publish('myDisclose',function(){
+     return Disclose.find({author:this.userId});
+
+ });
+
 Meteor.publish('matchedUsers',function(){
     var data = Big5.findOne({author: this.userId});
-    var myscore = data.total;
-    var match = Big5.find({$and : [{total: {$gt : myscore-2}},{total: {$lt : myscore+2}},{author :{$ne: this.user}}]}).fetch();
+    var myscore = data.extraversion;
+    var match = Big5.find({$and : [{extraversion: {$gt : myscore-1}},{extraversion: {$lt : myscore+1}},{author :{$ne: this.user}}]}).fetch();
     var userId = this.userId;
     var profile_data=[];
     _.each(match,function(data){
