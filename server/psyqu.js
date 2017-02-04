@@ -66,6 +66,20 @@ Meteor.methods({
     Profiles.insert(profile);
   },
 
+  'submitFriendDemo': function (friendDemo) {
+      console.log(friendDemo);
+        FriendDemo.simpleSchema().clean(friendDemo, {
+      extendAutoValueContext: {
+        isInsert: true,
+        isUpdate: false,
+        isUpsert: false,
+        isFromTrustedCode: false
+      }
+    });
+    console.log('new FRIENDDEMO:', friendDemo);
+    FriendDemo.insert(friendDemo);
+  },
+
     updateProfile : function(modifier,documentId){
             Profiles.update({_id:documentId},modifier);
     },
@@ -77,6 +91,9 @@ Meteor.methods({
     },
     updateValueScale : function (modifier,documentId) {
                 Value.update({_id:documentId},modifier);
+    },
+    updateFriendDemo : function (modifier,documentId) {
+                FriendDemo.update({_id:documentId},modifier);
     }
 });
 

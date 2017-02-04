@@ -3,14 +3,14 @@
 <template name="friend">
   <div class="text-center">
     <h1>Find a friend!</h1>
-      <h4> You need to fill in any of the scales below. The more scales you finish, the more accurate the result will be.</h4>                
+      <h4> You need to fill in the scales below in sequence. You can narrow your matching results by filling in more scales.</h4>                
   </div>
+       {{> friend_Demo}}
 
   <div class="text-center">
         {{> friendNavi}}  
   </div>
-   {{> SideNav}}
-
+        {{> SideNav}}
 </template> 
      
 <template name="friendNavi"> 
@@ -29,7 +29,6 @@
 </div>
 
 </template>
-
 
 
 

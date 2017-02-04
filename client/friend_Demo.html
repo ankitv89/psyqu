@@ -1,0 +1,38 @@
+<template name = "friend_Demo"> 
+    <div class = "FriendDemo1">
+        {{#if FriendDemoExists}}
+      {{#autoForm collection="FriendDemo" id="insertFriendDemo" autosave=true schema=schemaFromJSON type="method" meteormethod="submitFriendDemo" template="bootstrap3-inline" }}
+            <div class="row">
+                <div class="col-md-4">
+                    <div  class="col-md-8">
+                        {{> afQuickField name="FriendOp" template="bootstrap3-inline"}}
+                    </div>
+                    <div  class="col-md-8">
+                        {{> afQuickField name="location" template="bootstrap3-inline"}}
+                    </div>
+
+                </div>
+            </div>
+          {{/autoForm}}
+{{else}}
+
+            {{# autoForm  collection="FriendDemo" autosave=true doc=currentDoc2 id="updateFriendDemo" type="method-update" meteormethod="updateFriendDemo" }}
+
+<div class="row">
+        <div class="col-md-4">
+            <div  class="col-md-4">
+      
+            {{> afQuickField name="FriendOp" template="bootstrap3-inline"}}
+            </div>
+            <div  class="col-md-8">
+            {{> afQuickField name="location" template="bootstrap3-inline"}}
+             </div>
+        </div>
+  
+   </div>
+
+            {{/autoForm}}
+   
+            {{/if}}
+</div>
+</template>
