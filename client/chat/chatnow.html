@@ -1,0 +1,78 @@
+<template name="chatNow">
+    <div class="container">
+<h4>Chat</h4>
+
+
+
+    <div class="row">
+
+
+            <div id="messages_list">
+
+                {{#each messages}}
+                    {{#if received _id}}
+                        <div class="panel-body msg_container_base">
+                            <div class="row msg_container base_receive">
+
+                                <div class="col-md-6 col-xs-6">
+                                    <div class="messages msg_receive">
+                                        <h5>{{message}}</h5>
+                                        <time datetime="2009-11-13T20:00">{{dateFormat createdAt}}</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{scrollDown}}
+                    {{else}}
+                        <div class="panel-body msg_container_base ">
+                            <div class="row msg_container base_sent">
+                                <div class="col-md-6 col-xs-6">
+                                    <div class="messages msg_sent">
+                                        <h5>{{message}}</h5>
+                                        <time datetime="2009-11-13T20:00">You • {{ dateFormat createdAt}}</time>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        {{scrollDown}}
+
+                    {{/if}}
+                {{/each}}
+
+
+
+
+            </div>
+
+
+        </div>
+        <div class="message_block col-md-12 col-xs-12">
+            <form id="send_message_form" autocomplete="off">
+                <div class="panel-footer">
+                    <div class="input-group col-md-12">
+                        <input id="msg_form" type="text" class="form-control chat_input" placeholder="Write your message here..." />
+
+
+                            <button class="btn btn-primary pull-right" type="submit" id="btn-chat">Send</button>
+
+
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+
+
+
+
+    </div>
+
+    {{> SideNav}}
+</template>

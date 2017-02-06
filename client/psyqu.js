@@ -73,6 +73,26 @@ Router.route('/Value',{
     }
 });
 
+
+Router.route('chatNow/:fromId',{
+    name : 'chatNow',
+
+    template : 'chatNow',
+    waitOn : function(){
+        var id = this.params.fromId;
+        Session.set('fromid',id);
+        return [Meteor.subscribe('messages',id)];
+    },
+    data: function() {
+
+        return {
+            userData: Meteor.users.findOne({_id:this.params.fromId})
+        };
+    },
+
+});
+
+
 Router.route('/friend',{
     waitOn: function(){
         return Meteor.subscribe('myFriendDemo');
@@ -130,6 +150,15 @@ Template.SideNav.events({
 
 
 
+
+Template.registerHelper('dateFormat', function(context) {
+    if (window.moment) {
+        var f = "MMM DD, YYYY";
+        return moment(context).format(f); //had to remove Date(context)
+    }else{
+        return context;   //  moment plugin not available. return data as is.
+    };
+});
 
 
 

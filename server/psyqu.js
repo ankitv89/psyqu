@@ -113,7 +113,24 @@ Meteor.methods({
     },
         updatePhq9Scale : function (modifier,documentId) {
                 Phq9.update({_id:documentId},modifier);
-    }
+    },
+    'insertMessage' : function(sentTo,message){
+        check(sentTo, String);
+        check(message, String);
+        // console.log(message);
+        if(Meteor.user()){
+
+            var sentToPerson = sentTo;
+            var messageTrimmed = message.trim();
+            // var messageSanitized = sanitizeHtml(messageTrimmed,{
+            //     allowedTags:[],
+            //     allowedAttributes:[]
+            //
+            // });
+            // console.log(messageSanitized);
+            Msg.insert({sentTo : sentToPerson, sentFrom : Meteor.userId(), message : messageTrimmed , archive : [],createdAt: new Date(),status : 1});
+        }
+    },
 });
 
 

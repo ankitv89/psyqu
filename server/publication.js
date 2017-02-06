@@ -51,6 +51,18 @@ Meteor.publish('matchedUsers',function(){
 
 });
 
+//Messages between two users
+Meteor.publish('messages', function (id) {
+        check(id, String);
+        return Msg.find({$and : [{sentFrom: {$in: [id, this.userId]}},{sentTo : {$in : [id , this.userId]}},{archive : {$exists: true,$not :{$elemMatch: { $eq:this.userId}}}}, {status : {$in:[1,0]}}]});
+
+
+    }
+
+
+
+    //
+);
 
 
 
