@@ -141,6 +141,17 @@ Template.friendNavi.events({
 });
 
 
+Template.friendNavi.helpers({
+    'isComplete' : function(id){
+        return ReactiveMethod.call('isComplete', id ,function(err,res){
+            if(err)
+                console.log(err)
+            else return res
+        })
+    }
+ })
+
+
 Template.SideNav.events({
    "click #logout" : function(){
        Meteor.logout();
@@ -159,6 +170,11 @@ Template.registerHelper('dateFormat', function(context) {
         return context;   //  moment plugin not available. return data as is.
     };
 });
+
+
+
+
+
 
 
 

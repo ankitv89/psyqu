@@ -131,6 +131,16 @@ Meteor.methods({
             Msg.insert({sentTo : sentToPerson, sentFrom : Meteor.userId(), message : messageTrimmed , archive : [],createdAt: new Date(),status : 1});
         }
     },
+    isComplete : function(doc){
+        //console.log(global[doc]);
+        var count = global[doc].find().count();
+       // console.log(doc,count);
+        if(count>0){
+            return true;
+        }
+        else
+            return false
+    }
 });
 
 
